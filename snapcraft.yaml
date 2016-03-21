@@ -1,0 +1,22 @@
+name: node-http-server 
+version: 0.0.2
+summary: A simple zero-configuration command-line http server.
+description: >
+  http-server is a simple, zero-configuration command-line http server. It
+  is powerful enough for production usage, but it's simple and hackable
+  enough to be used for testing, local development, and learning.
+
+apps:
+  node-http-server:
+    command: bin/http-server
+    plugs: [listener]
+
+plugs:
+  listener:
+    interface: old-security
+    caps: [network-listener]
+
+parts:
+  node-http-server:
+    plugin: nodejs
+    source: .
